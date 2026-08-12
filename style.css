@@ -1,0 +1,548 @@
+/* ================= GENERAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f4ff,
+            #eef5ff
+        );
+
+    color: #222;
+
+    min-height: 100vh;
+
+    transition: 0.3s;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    height: 70px;
+
+    padding: 0 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: white;
+
+    border-bottom: 1px solid #eee;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 23px;
+
+    font-weight: bold;
+}
+
+.theme-btn {
+    border: none;
+
+    background: #f1f1f1;
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    transform: rotate(15deg);
+}
+
+
+/* ================= GAME CONTAINER ================= */
+
+.game-container {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 55px 20px;
+
+    text-align: center;
+}
+
+
+/* ================= HEADING ================= */
+
+.subtitle {
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #777;
+
+    font-weight: bold;
+}
+
+.game-heading h1 {
+
+    font-size: 48px;
+
+    margin: 10px 0;
+}
+
+.description {
+
+    color: #777;
+
+    font-size: 16px;
+}
+
+
+/* ================= STATS ================= */
+
+.stats {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    margin: 35px 0;
+}
+
+.stat-box {
+
+    background: white;
+
+    min-width: 150px;
+
+    padding: 15px 20px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.06);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.stat-box span {
+
+    font-size: 13px;
+
+    color: #777;
+}
+
+.stat-box strong {
+
+    font-size: 20px;
+}
+
+
+/* ================= GAME BOARD ================= */
+
+.game-board {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    max-width: 650px;
+
+    margin: 0 auto;
+}
+
+
+/* ================= CARD ================= */
+
+.card {
+
+    height: 140px;
+
+    perspective: 1000px;
+
+    cursor: pointer;
+}
+
+.card-inner {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: relative;
+
+    transition:
+        transform 0.5s;
+
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+
+    transform:
+        rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    backface-visibility: hidden;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* Card Back */
+
+.card-front {
+
+    background:
+        linear-gradient(
+            135deg,
+            #6c63ff,
+            #8f7cff
+        );
+
+    color: white;
+
+    font-size: 35px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+/* Card Face */
+
+.card-back {
+
+    background: white;
+
+    transform:
+        rotateY(180deg);
+
+    font-size: 45px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+/* Matched Card */
+
+.card.matched .card-back {
+
+    box-shadow:
+        0 0 0 3px #55b87a;
+}
+
+
+/* ================= RESTART ================= */
+
+.restart-btn {
+
+    margin-top: 35px;
+
+    padding: 13px 25px;
+
+    border: none;
+
+    background: #222;
+
+    color: white;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.restart-btn:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* ================= MODAL ================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.modal.show {
+
+    display: flex;
+}
+
+.modal-content {
+
+    background: white;
+
+    width: 90%;
+
+    max-width: 400px;
+
+    padding: 40px;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    animation:
+        popup 0.3s ease;
+}
+
+@keyframes popup {
+
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.trophy {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+.modal-content h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.modal-content > p {
+
+    color: #777;
+
+    margin-bottom: 20px;
+}
+
+.final-score {
+
+    background: #f5f5f5;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+}
+
+.final-score p {
+
+    margin: 7px;
+}
+
+.play-again-btn {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    background: #222;
+
+    color: white;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+
+/* ================= DARK MODE ================= */
+
+body.dark {
+
+    background:
+        linear-gradient(
+            135deg,
+            #151525,
+            #111827
+        );
+
+    color: white;
+}
+
+body.dark .header {
+
+    background: #1f1f2e;
+
+    border-color: #333;
+}
+
+body.dark .theme-btn {
+
+    background: #333;
+
+    color: white;
+}
+
+body.dark .stat-box {
+
+    background: #222;
+
+    color: white;
+}
+
+body.dark .stat-box span,
+body.dark .description {
+
+    color: #aaa;
+}
+
+body.dark .card-back {
+
+    background: #252536;
+}
+
+body.dark .modal-content {
+
+    background: #222;
+
+    color: white;
+}
+
+body.dark .final-score {
+
+    background: #333;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 650px) {
+
+    .game-heading h1 {
+
+        font-size: 38px;
+    }
+
+    .stats {
+
+        gap: 8px;
+    }
+
+    .stat-box {
+
+        min-width: 100px;
+
+        padding: 12px 8px;
+    }
+
+    .game-board {
+
+        gap: 10px;
+    }
+
+    .card {
+
+        height: 100px;
+    }
+
+    .card-back {
+
+        font-size: 32px;
+    }
+
+    .card-front {
+
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .stats {
+
+        flex-wrap: wrap;
+    }
+
+    .stat-box {
+
+        flex: 1;
+
+        min-width: 90px;
+    }
+
+    .game-board {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+}

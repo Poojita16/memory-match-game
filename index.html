@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memory Match Game</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <div class="logo">
+            🧠 Memory Match
+        </div>
+
+        <button id="themeBtn" class="theme-btn">
+            🌙
+        </button>
+
+    </header>
+
+
+    <!-- Main -->
+
+    <main class="game-container">
+
+        <!-- Game Heading -->
+
+        <section class="game-heading">
+
+            <p class="subtitle">
+                TEST YOUR MEMORY
+            </p>
+
+            <h1>
+                Memory Match
+            </h1>
+
+            <p class="description">
+                Find all the matching pairs!
+            </p>
+
+        </section>
+
+
+        <!-- Game Stats -->
+
+        <section class="stats">
+
+            <div class="stat-box">
+
+                <span>
+                    ⏱️ Time
+                </span>
+
+                <strong id="timer">
+                    00:00
+                </strong>
+
+            </div>
+
+
+            <div class="stat-box">
+
+                <span>
+                    👣 Moves
+                </span>
+
+                <strong id="moves">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-box">
+
+                <span>
+                    🏆 Pairs
+                </span>
+
+                <strong id="pairs">
+                    0 / 6
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- Game Board -->
+
+        <section
+            id="gameBoard"
+            class="game-board">
+        </section>
+
+
+        <!-- Restart -->
+
+        <button
+            id="restartBtn"
+            class="restart-btn">
+
+            🔄 Restart Game
+
+        </button>
+
+    </main>
+
+
+    <!-- Win Modal -->
+
+    <div
+        id="winModal"
+        class="modal">
+
+        <div class="modal-content">
+
+            <div class="trophy">
+                🏆
+            </div>
+
+            <h2>
+                You Won!
+            </h2>
+
+            <p>
+                Great memory!
+            </p>
+
+            <div class="final-score">
+
+                <p>
+                    Time:
+                    <strong id="finalTime">
+                        00:00
+                    </strong>
+                </p>
+
+                <p>
+                    Moves:
+                    <strong id="finalMoves">
+                        0
+                    </strong>
+                </p>
+
+            </div>
+
+            <button
+                id="playAgainBtn"
+                class="play-again-btn">
+
+                Play Again
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
